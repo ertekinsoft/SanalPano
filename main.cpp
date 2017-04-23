@@ -32,27 +32,15 @@ int gun = 1;
         rightW = left*rightSum;
         leftW = (N-right)*leftSum;
         gun++;
-        if(rightW<leftW && left>0){
+        if(rightW<=leftW && left>0){
             left--;
             cost += gun*D[left];
             leftSum -= D[left];
-        }else if(rightW>leftW && right<D.size()-1){
+        }else if(rightW>=leftW && right<D.size()-1){
             right++;
             cost += gun*D[right];
             rightSum -= D[right];
-        }else{
-
-            if(left>0){
-            left--;
-            cost += gun*D[left];
-            leftSum -= D[left];
-            }else{
-            right++;
-            cost += gun*D[right];
-            rightSum -= D[right];
-            }
         }
-
     }
     cout<<cost;
     return 0;
